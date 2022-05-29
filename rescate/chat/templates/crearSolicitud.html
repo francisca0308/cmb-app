@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <main id="main">
+    {% block form %}
+    <form method="POST" name="myForm" id="myForm" class="encontradosform" enctype="multipart/form-data" onsubmit="DoSubmit();">
+        {% csrf_token %}
+        {{ form.estado }}
+        {{ form.fechaInicio }}
+        {{ form.comentario }}
+        <button id="submit" class="btn btn-success">Guardar</button>
+    </form>
+    {% endblock %}
+  </main>
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <main id="main">
+    {% for item in query %}
+        {{ item }}
+    {% endfor %}
+  </main>
+{% endblock content %}

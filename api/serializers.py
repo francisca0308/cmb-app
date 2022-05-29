@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Persona, Module
+from .models import Persona, Module, Solicitud
 
 class PersonaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -9,4 +9,9 @@ class PersonaSerializer(serializers.ModelSerializer):
 class ModuleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Module
+        fields = '__all__'
+
+class SolicitudSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Solicitud
         fields = '__all__'

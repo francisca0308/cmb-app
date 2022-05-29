@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ 'Mascotas Perdidas' }}{% endblock title %}
+
+{% block content %}
+    <main id="main">
+            {% if user.is_authenticated %}
+            <h1 id="titulo" class="h3 mb-3 fw-normal">Mascotas Perdidas En Tu Comuna</h1>
+
+            <div class="contenedor_filtro">
+                <div>
+                    <h4>Raza</h4>
+                    <select class="filterby">
+                        <option value="all">Todos</option>
+                        <option value="raza_Quiltro">Quiltro</option>
+                        <option value="raza_Pastor">Pastor Alemán</option>
+                        <option value="raza_Grand">Grand Danés</option>
+                        <option value="raza_Pitbull">Pitbull</option>
+                        <option value="raza_Pug">Pug</option>
+                    </select>
+                </div>
+    
+                <div>
+                    <h4>Género</h4>
+                    <select class="filterby">
+                        <option value="all">Todos</option>
+                        <option value="genero_Hembra">Hembra</option>
+                        <option value="genero_Macho">Macho</option>
+                    </select>
+                </div>
+    
+                <div>
+                    <h4>Tamaño</h4>
+                    <select class="filterby">
+                        <option value="all">Todos</option>
+                        <option value="tamano_Pequeño">Pequeño</option>
+                        <option value="tamano_Mediano">Mediano</option>
+                        <option value="tamano_Grande">Grande</option>
+                    </select>  
+                </div>
+            </div>
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="{{ message.tags }}">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <div id="featured-3" class="container px-4 py-5">
+                <div id="FilterContainer" class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                    {% for item in query %}
+                    <div class="publicacionContainer feature col all raza_{{ item.raza }}  genero_{{ item.género }} tamano_{{ item.tamaño }}">
+                        <div class="fotoContainer all raza_{{ item.raza }} genero_{{ item.género }} tamano_{{ item.tamaño }}">
+                            <a href="detalle_perdido/{{item.id}}">
+                                <img class="fotoMascota" src="{{ item.foto.url }}" alt="Acá va una image :P">
+                            </a>
+                        </div>
+                        <h2>{{ item.nombre }}</h2>
+                        <p>Raza: {{ item.raza }}</p>
+                        <p>Género: {{ item.género }}</p>
+                        <p>Tamaño: {{ item.tamaño }}</p>
+                        <p>Visto última vez: {{ item.visto_ultima_vez }}</p>
+                        {% if item.comentarios != "" %}
+                            <p class="comentarios">{{ item.comentarios }}</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% else %}
+            <h1 id="titulo" class="h3 mb-3 fw-normal">Bienvenido</h1>
+            <div class="bienvenida">
+                <p>
+                    Porfavor regístrate en la página o inicia sesión.
+                </p>
+            </div>
+            {% endif %}
+    </main>
+{% endblock content %}

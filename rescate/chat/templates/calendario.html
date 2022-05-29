@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <main id="main">
+    {% for module in query %}
+    <div>
+      {{ module.personaId }}
+      {{ module.estado }}
+      {{ module.fecha }}
+    </div>
+    {% endfor %}
+  </main>
+{% endblock content %}
