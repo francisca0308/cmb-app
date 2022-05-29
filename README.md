@@ -1,5 +1,9 @@
 # cmb-app
 
+Durante gran parte del desafío se quizo trabajar con Django y React, pero no se logró la integración.
+Finalmente, desde las 4 AM, se optó por comenzar de nuevo solo con Django.
+
+Para correr el programa, se debe ingresar a "rescate" y seguir los pasos siguientes:
 Se recomienda utilizar un entorno virtual
 ```shellscript
 python -m venv venv
