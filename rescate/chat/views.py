@@ -1,30 +1,28 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
-from django.http import HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.conf import settings
 from chat.models import Persona, Module, Solicitud
 from chat.forms import SolicitudForm
-from django.contrib.auth import authenticate, login,logout
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return render(request, "index.html")
 
-def crearSolicitud(request):
+def crearSolicitud(request, moduleId, personaId):
+    module = get_object_or_404(Module, pk=moduleId)
+    persona = get_object_or_404(Persona, pk=personaId)
     if request.method == 'POST':
         form = SolicitudForm(request.POST)
         if form.is_valid():
-            new_pet = form.save(commit=False)
-            new_pet.lost_pet_id = request.user
-            new_pet.save()
+            nuevaSolicitud = form.save(commit=False)
+            nuevaSolicitud.personaId = persona
+            nuevaSolicitud.moduleId = module
+            nuevaSolicitud.save()
             messages.success(request, 'Tu solicitud se ha subido correctamente :D')
-            return redirect('index')
+            return redirect('solicitudes')
         else:
             messages.warning(request, 'Tu solicitud no se pudo subir correctamente D:')
-            return redirect('index')
+            return redirect('solicitudes')
     else:
         form = SolicitudForm()
 
@@ -36,4 +34,5 @@ def solicitudes(request):
 
 def calendario(request):
     query = Module.objects.all()
+    personas = Persona.objects.all()
     return render(request, 'calendario.html', {'query': query})

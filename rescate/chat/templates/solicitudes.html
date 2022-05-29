@@ -3,8 +3,12 @@
 {% block content %}
 
   <main id="main">
-    {% for item in query %}
-        {{ item }}
+    {% for solicitud in query %}
+    <div>
+      {{ solicitud.personaId.nombre }}
+      {{ solicitud.moduleId.fecha }}
+      {{ solicitud.comentario }}
+    </div>
     {% endfor %}
   </main>
 {% endblock content %}
