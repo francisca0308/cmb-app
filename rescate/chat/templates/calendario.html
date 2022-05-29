@@ -3,17 +3,6 @@
 {% block content %}
 
   <main id="main">
-<<<<<<< HEAD
-    {% for module in query %}
-    <div>
-      {{ module.personaId.nombre }}
-      {{ module.estado }}
-      {{ module.fecha }}
-      {{ module.id }}
-      {% if module.personaId.id == 1 %} 
-        <a href='{% url "crearSolicitud" module.id module.personaId.id %}'> Solicitar Cambio</a>
-      {% endif %}
-=======
     <div class="module-list">
       {% for module in query %}
         <div class="module-root {% if module.estado == 1 %} yellow {% endif %}">
@@ -21,10 +10,12 @@
             {{ module.personaId }}
             {{ module.estado }}
             {{ module.fecha }}
+            {% if module.personaId.id == 1 %} 
+              <a href='{% url "crearSolicitud" module.id module.personaId.id %}'> Solicitar Cambio</a>
+            {% endif %}
           </div>
         </div>
       {% endfor %}  
->>>>>>> 8559d3a1cb72f0b78d98dc93c49f649bb0528fd8
     </div>
   </main>
 {% endblock content %}
