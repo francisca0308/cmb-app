@@ -1,0 +1,32 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.button {
+  margin: auto;
+  display: flex;
+  border-radius: 6px;
+  height: 30px;
+  width: 145px;
+  cursor: pointer;
+  font-size: small;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid #a0c8ff;
+}
+
+.button:hover {
+  background-color: #c6deff;
+  color: #a0c8ff;
+}

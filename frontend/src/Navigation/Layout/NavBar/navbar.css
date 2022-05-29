@@ -1,0 +1,21 @@
+.navbar-root {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  background-color: #c6deff;
+  border-bottom: 2px solid #a0c8ff;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: large;
+  font-weight: bolder;
+}
+
+.navbar-img {
+  margin-right: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  height: 50px;
+}

@@ -1,0 +1,36 @@
+.module-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 10px;
+  border-radius: 6px;
+  width: 150px;
+  height: 100px;
+}
+
+.green {
+  background-color: #aceb5a;
+  border: 1px solid #93c94e;
+}
+
+.yellow {
+  background-color: #f0f188;
+  border: 1px solid #e9eb4e;
+}
+
+.red {
+  background-color: #f18888;
+  border: 1px solid #eb4e4e;
+}
+
+.module-element {
+  display: flex;
+}
+
+.module-list {
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  right: 0;
+}
