@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <main id="main">
+    {% for solicitud in query %}
+    <div>
+      {{ solicitud.personaId.nombre }}
+      {{ solicitud.moduleId.fecha }}
+      {{ solicitud.comentario }}
+      {% if module.personaId.id == 1 %} 
+      <a href='{% url "crearSolicitud" solicitud.id solicitud.personaId.id %}'> Cambiar</a>
+    {% endif %}
+    </div>
+    {% endfor %}
+  </main>
+{% endblock content %}

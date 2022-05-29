@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <main id="main">
+    <div class="module-list">
+      {% for module in query %}
+        <div class="module-root {% if module.estado == 1 %} yellow {% endif %}">
+          <div class="module-element">  
+            {{ module.personaId }}
+            {{ module.estado }}
+            {{ module.fecha }}
+            {% if module.personaId.id == 1 %} 
+              <a href='{% url "crearSolicitud" module.id module.personaId.id %}'> Solicitar Cambio</a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}  
+    </div>
+  </main>
+{% endblock content %}

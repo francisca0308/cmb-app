@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="form">
+    <main id="main" class="form">
+      {% block form %}
+      <form method="POST" name="myForm" id="myForm" class="encontradosform" enctype="multipart/form-data" onsubmit="DoSubmit();">
+        {% csrf_token %}
+        <div class="form-columns">
+
+          <div class="form-element">
+            <div class="form-columns preguntas">
+              <div>
+                Estado de la solicitud:
+              </div>
+              <div>
+                Fecha de inicio: 
+              </div>
+              <div>
+                Comentario:
+              </div> 
+            </div>
+            <div class="form-columns">
+              {{ form.estado }}
+              {{ form.fechaInicio }}
+              {{ form.comentario }}
+            </div>
+          </div>
+          <button id="submit" class="btn btn-success">Guardar</button>
+        </div>
+        </form>
+      {% endblock %}
+    </main>
+  </div>
+  {% endblock content %}
