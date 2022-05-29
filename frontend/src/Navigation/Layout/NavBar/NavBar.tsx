@@ -1,15 +1,18 @@
 import "./navbar.css";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
     <div className="navbar-root">
       <div className="navbar-menu">
         <div>
-          <img
-            className="navbar-img"
-            src={require("../../../Assets/Logo_de_Fintual.png")}
-            alt="myMarketIcon"
-          ></img>
+          <Link to="/">
+            <img
+              className="navbar-img"
+              src={require("../../../Assets/Logo_de_Fintual.png")}
+              alt="myMarketIcon"
+            ></img>
+          </Link>
         </div>
       </div>
       <div className="title">

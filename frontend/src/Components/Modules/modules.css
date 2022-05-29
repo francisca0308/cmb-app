@@ -30,7 +30,7 @@
 
 .module-list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   left: 0;
   right: 0;
 }
